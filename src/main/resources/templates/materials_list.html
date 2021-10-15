@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http:///www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista materiałów</title>
+    <style>
+        a {
+            background: gainsboro;
+            color: #070707;
+            font-size:12px;
+            font-weight: bold;
+            font-family: Arial;
+            text-decoration: none;
+            text-align: center;
+            border-color: #070707;
+            border-radius: 10px;
+            display: block;
+        }
+        th {
+            font-weight: bold;
+            background-color: gainsboro;
+        }
+
+    </style>
+</head>
+<body style="background-color: #feffff">
+<div align="center">
+    <a href="addNewMaterial">Dodaj materiał</a>
+    <h1>Lista materiałów</h1>
+    <table border="1" cellpadding="5" style="border: black">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nazwa</th>
+            <th>Kolor</th>
+            <th>Ilość</th>
+            <th>Cena/szt</th>
+            <th>AKCJA</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="material : ${allMaterials}">
+            <td th:text="${material.id}">Id</td>
+            <td th:text="${material.nazwa}">Nazwa</td>
+            <td th:text="${material.kolor}">Kolor</td>
+            <td th:text="${material.ilosc}">Ilość</td>
+            <td th:text="${material.cenaSzt}">Cena/szt</td>
+            <td>
+                <a th:href="@{'/editMaterial/' + ${material.id}}">EDYTUJ</a>
+                &nbsp;&nbsp;&nbsp
+                <a th:href="@{'/deleteMaterial/' + ${material.id}}">USUN</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

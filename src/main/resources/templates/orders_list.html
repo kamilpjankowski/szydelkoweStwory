@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http:///www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista zamówień</title>
+    <style>
+        a {
+            background: gainsboro;
+            color: #070707;
+            font-size: 12px;
+            font-weight: bold;
+            font-family: Arial;
+            text-decoration: none;
+            text-align: center;
+            border-color: #070707;
+            border-radius: 10px;
+            display: block;
+        }
+
+        th {
+            font-weight: bold;
+            background-color: gainsboro;
+        }
+
+    </style>
+</head>
+<body style="background-color: #feffff">
+<div align="center">
+    <a href="newOrder">Dodaj nowe zamówienie</a>
+    <h1>Lista zamówień</h1>
+    <table border="1" cellpadding="5" style="border: black">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Data zamówienia</th>
+            <th>Termin realizacji</th>
+            <th>Id klienta</th>
+            <th>Imię klienta</th>
+            <th>Nazwisko klienta</th>
+            <th>Adres</th>
+            <th>Id maskotki</th>
+            <th>Nazwa maskotki</th>
+            <th>Cena</th>
+            <th>Typ odbioru</th>
+            <th>Uwagi</th>
+            <th>Zrealizowane</th>
+            <th>AKCJA</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="zamowienie : ${allOrders}">
+            <td th:text="${zamowienie.id}">Id zamówienia</td>
+            <td th:text="${zamowienie.data_zamowienia}">Data zamówienia</td>
+            <td th:text="${zamowienie.termin_realizacji}">Termin realizacji</td>
+            <td th:text="${zamowienie.klient.id}">Id klienta</td>
+            <td th:text="${zamowienie.klient.imie}">Imię klienta</td>
+            <td th:text="${zamowienie.klient.nazwisko}">Nazwisko klienta</td>
+            <td th:text="${zamowienie.klient.adres}">Adres</td>
+            <td th:text="${zamowienie.maskotka.id}">Id maskotki</td>
+            <td th:text="${zamowienie.maskotka.nazwa}">Nazwa maskotki</td>
+            <td th:text="${zamowienie.cena}">Cena</td>
+            <td th:text="${zamowienie.typOdbioru}">Typ odbioru</td>
+            <td th:text="${zamowienie.uwagi}">Uwagi</td>
+            <td th:text="${zamowienie.zrealizowane}">Zrealizowane</td>
+            <td>
+<!--                <a th:href="@{'/editOrder/' + ${zamowienie.id}}">EDYTUJ</a>-->
+<!--                &nbsp;&nbsp;&nbsp;-->
+                <a th:href="@{'/deleteOrder/' + ${zamowienie.id}}">USUN</a>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

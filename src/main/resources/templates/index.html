@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>STRONA ADMINISTRACYJNA</title>
+    <style>
+        a {
+            color: #070707;
+            font-size:12px;
+            font-weight: bold;
+            font-family: Arial;
+            text-decoration: none;
+            text-align: center;
+            display: block;
+        }
+        th {
+            font-weight: bold;
+            background-color: gainsboro;
+        }
+
+    </style>
+</head>
+<body style="background-color: #feffff">
+<div align="center">
+    <h1>STRONA KONFIGURACYJNA</h1>
+    <!--<table align="left" border="1" cellpadding="5" style="border: black">-->
+    <!--  <thead>-->
+    <!--  <tr>-->
+    <!--    <th>FLOTA</th> <th>ODDZIAL</th> <th>PRACOWNIK</th> <th>KLIENT</th> <th>REZERWACJA</th>-->
+    <!--  <tbody>-->
+    <!--<tr><th><a href="lista_samochodow">Flota</a><td><a href="lista_oddzialow">Lista oddziałów</a><td>LISTA PRACOWNIKOW<td><a href="lista_klientow">Lista klientów</a><td><a href="lista_rezerwacji">Lista rezerwacji</a>-->
+    <!--<tr><th><a href="lista_dostepnych_samochodow">Dostępne samochody</a><td><a href="dodajOddzial">Dodaj nowy oddzial</a><td>DODAJ NOWEGO PRACOWNIKA<td><a href="dodajKlienta">Dodaj klienta</a><td><a href="dodajRezerwacje">Dodaj rezerwację</a>-->
+    <!--<tr><th><a href="dodajSamochod">Dodaj nowy samochód</a>-->
+    <!--</table>-->
+
+    <table th:cellpadding="5" >
+        <thead>
+        <tr>
+            <th>KLIENCI</th>
+            <th>MASKOTKI</th>
+            <th>MATERIAŁY</th>
+            <th>ZAMÓWIENIA</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><a href="allClients">Klienci</a></td>
+            <td><a href="allMascots">Maskotki</a></td>
+            <td><a href="allMaterials">Materiały</a></td>
+            <td><a href="allOrders">Zamówienia</a></td>
+        </tr>
+        <tr>
+            <td><a href="addNewClient">Dodaj klienta</a></td>
+            <td><a href="addNewMascot">Dodaj maskotkę</a></td>
+            <td><a href="addNewMaterial">Dodaj materiał</a></td>
+            <td><a href="newOrder">Dodaj zamówienie</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<iframe src="https://calendar.google.com/calendar/embed?src=kamilpjankowski%40gmail.com&ctz=Europe%2FWarsaw" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+</body>
+</html>

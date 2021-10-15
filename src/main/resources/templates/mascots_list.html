@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http:///www.thymeleaf.org">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista maskotek</title>
+  <style>
+    a {
+      background: gainsboro;
+      color: #070707;
+      font-size:12px;
+      font-weight: bold;
+      font-family: Arial;
+      text-decoration: none;
+      text-align: center;
+      border-color: #070707;
+      border-radius: 10px;
+      display: block;
+    }
+    th {
+      font-weight: bold;
+      background-color: gainsboro;
+    }
+
+  </style>
+</head>
+<body style="background-color: #feffff">
+<div align="center">
+  <a href="addNewMascot">Dodaj maskotkę</a>
+  <h1>Lista maskotek</h1>
+  <table border="1" cellpadding="5" style="border: black">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Nazwa</th>
+      <th>Cena podstawowa</th>
+      <th>Czas wykonania</th>
+      <th>AKCJA</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="mascot : ${allMascots}">
+      <td th:text="${mascot.id}">Id</td>
+      <td th:text="${mascot.nazwa}">Nazwa</td>
+      <td th:text="${mascot.cena_podstawowa}">Cena podstawowa</td>
+      <td th:text="${mascot.czas_wykonania}">Czas wykonania</td>
+      <td>
+        <a th:href="@{'/editMascot/' + ${mascot.id}}">EDYTUJ</a>
+        &nbsp;&nbsp;&nbsp
+        <a th:href="@{'/deleteMascot/' + ${mascot.id}}">USUN</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http:///www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DODAJ NOWY MATERIAŁ</title>
+</head>
+<body style="background-color: #feffff">
+<div align="center">
+    <h1>NOWY MATERIAŁ</h1>
+    <br/>
+    <form action="#" th:action="@{/saveMaterial}" th:object="${material}" method="post">
+        <table border="0" cellpadding="5">
+            <tr>
+                <td>Nazwa:</td>
+                <td><input type="text" th:field="*{nazwa}"/></td>
+            </tr>
+            <tr>
+                <td>Kolor:</td>
+                <td><input type="text" th:field="*{kolor}"/></td>
+            </tr>
+            <tr>
+                <td>Ilość:</td>
+                <td><input type="number" th:field="*{ilosc}"/></td>
+            </tr>
+            <tr>
+                <td>Cena/szt</td>
+                <td><input type="number" th:field="*{cenaSzt}"/></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">DODAJ</button></td>
+            </tr>
+
+        </table>
+
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http:///www.thymeleaf.org">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DODAJ NOWĄ MASKOTKĘ</title>
+</head>
+<body style="background-color: #feffff">
+<div align="center">
+  <h1>NOWA MASKOTKA</h1>
+  <br/>
+  <form action="#" th:action="@{/saveMascot}" th:object="${newMascot}" method="post">
+    <table border="0" cellpadding="5">
+      <tr>
+        <td>Nazwa:</td>
+        <td><input type="text" th:field="*{nazwa}"/></td>
+      </tr>
+      <td><select th:field="*{materialId}">
+        <option th:each="material : ${newMascot.listaMaterialow}"
+                th:value="${material.id}" th:text="'[ID materiału: ' +
+                  ${material.id} + '] [nazwa: ' +
+                  ${material.nazwa} + '] [kolor: ' + ${material.kolor} + ']'">
+        </option>
+      </select></td>
+      <tr>
+        <td>Cena podstawowa:</td>
+        <td><input type="text" th:field="*{cena_podstawowa}"/></td>
+      </tr>
+      <tr>
+        <td>Czas wykonania(dni):</td>
+        <td><input type="text" th:field="*{czas_wykonania}"/></td>
+      </tr>
+      <tr>
+        <td colspan="2"><button type="submit">DODAJ</button></td>
+      </tr>
+
+    </table>
+
+  </form>
+</div>
+</body>
+</html>

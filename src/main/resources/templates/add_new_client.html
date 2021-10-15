@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http:///www.thymeleaf.org">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DODAJ NOWEGO KLIENTA</title>
+</head>
+<body style="background-color: #feffff">
+<div align="center">
+  <h1>NOWY KLIENT</h1>
+  <br/>
+  <form action="#" th:action="@{/saveClient}" th:object="${klient}" method="post">
+    <table border="0" cellpadding="5">
+      <tr>
+        <td>Imie:</td>
+        <td><input type="text" th:field="*{imie}"/></td>
+      </tr>
+      <tr>
+        <td>Nazwisko:</td>
+        <td><input type="text" th:field="*{nazwisko}"/></td>
+      </tr>
+      <tr>
+        <td>Adres:</td>
+        <td><input type="text" th:field="*{adres}"/></td>
+      </tr>
+      <tr>
+        <td colspan="2"><button type="submit">DODAJ</button></td>
+      </tr>
+
+    </table>
+
+  </form>
+</div>
+</body>
+</html>

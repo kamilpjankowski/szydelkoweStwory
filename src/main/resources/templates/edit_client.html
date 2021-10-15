@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http:///www.thymeleaf.org">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edycja klienta</title>
+</head>
+<body style="background-color: #0fc4e7">
+<div align="center">
+  <h1>Edytuj klienta</h1>
+  <br/>
+  <form action="#" th:action="@{/saveClient}" th:object="${client}" method="post">
+    <table border="0" cellpadding="5">
+      <tr>
+        <td>Id:</td>
+        <td><input type="number" th:field="*{id}" /></td>
+      </tr>
+      <tr>
+        <td>Imie:</td>
+        <td><input type="text" th:field="*{imie}"/></td>
+      </tr>
+      <tr>
+        <td>Nazwisko:</td>
+        <td><input type="text" th:field="*{nazwisko}"/></td>
+      </tr>
+      <tr>
+        <td>Adres</td>
+        <td><input type="text" th:field="*{adres}"/></td>
+      </tr>
+        <td colspan="2"><button type="submit">ZAPISZ</button></td>
+      </tr>
+
+    </table>
+
+  </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http:///www.thymeleaf.org">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TWORZENIE NOWEGO ZAMÓWIENIA</title>
+</head>
+<body style="background-color: #feffff">
+<div align="center">
+  <h1>ZAMÓWIENIE</h1>
+  <br/>
+  <form action="#" th:action="@{/saveOrder}" th:object="${newOrder}" method="post">
+    <table cellpadding="5" style="border: black">
+      <tr>
+        <td>Data zamówienia:</td>
+        <td><input type="date" th:field="*{data_zamowienia}"/></td>
+      </tr>
+      <tr>
+        <td>Termin realizacji:</td>
+        <td><input type="date" th:field="*{termin_realizacji}"/></td>
+      </tr>
+      <tr>
+        <td>Id klienta</td>
+        <td><select th:field="*{klientId}">
+          <option th:each="client : ${newOrder.listaKlientow}"
+                  th:value="${client.id}" th:text="'[ID klienta: ' +
+                  ${client.id} + '] [imie: ' +
+                  ${client.imie} + '] [nazwisko: ' + ${client.nazwisko} + ']'">
+          </option>
+        </select></td>
+      </tr>
+      <tr>
+        <td>Id maskotki</td>
+        <td><select th:field="*{maskotkaId}">
+          <option th:each="maskotka : ${newOrder.listaMaskotek}"
+                  th:value="${maskotka.id}" th:text="'['+${maskotka.nazwa} +'] '+
+                  ' [' + ${maskotka.cena_podstawowa} + '] ' +  ' [' + ${maskotka.czas_wykonania} + ']'">
+          </option>
+        </select></td>
+      </tr>
+      <tr>
+        <td>Cena</td>
+        <td><input type="number" th:field="*{cena}"/></td>
+      </tr>
+      <tr>
+        <td>Typ odbioru</td>
+        <td><select th:field="*{typOdbioru}">
+          <option th:value="'ODBIOR_OSOBISTY'" th:text="ODBIOR_OSOBISTY"></option>
+          <option th:value="'WYSYLKA'" th:text="WYSYLKA"></option>
+        </select></td>
+      </tr>
+      <tr>
+        <td>Uwagi</td>
+        <td><input type="text" th:field="*{uwagi}"/></td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button type="submit">DODAJ</button>
+        </td>
+      </tr>
+
+    </table>
+
+  </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http:///www.thymeleaf.org">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista klientów</title>
+  <style>
+    a {
+      background: gainsboro;
+      color: #070707;
+      font-size:12px;
+      font-weight: bold;
+      font-family: Arial;
+      text-decoration: none;
+      text-align: center;
+      border-color: #070707;
+      border-radius: 10px;
+      display: block;
+    }
+    th {
+      font-weight: bold;
+      background-color: gainsboro;
+    }
+
+  </style>
+</head>
+<body style="background-color: #feffff">
+<div align="center">
+  <a href="addNewClient">Dodaj klienta</a>
+  <h1>Lista klientow</h1>
+  <table border="1" cellpadding="5" style="border: black">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Imie</th>
+      <th>Nazwisko</th>
+      <th>Adres</th>
+      <th>AKCJA</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="client : ${allClients}">
+      <td th:text="${client.id}">Id</td>
+      <td th:text="${client.imie}">Imię</td>
+      <td th:text="${client.nazwisko}">Nazwisko</td>
+      <td th:text="${client.adres}">Adres</td>
+      <td>
+        <a th:href="@{'/editClient/' + ${client.id}}">EDYTUJ</a>
+        &nbsp;&nbsp;&nbsp
+        <a th:href="@{'/deleteClient/' + ${client.id}}">USUN</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

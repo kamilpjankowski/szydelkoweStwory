@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http:///www.thymeleaf.org">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edycja maskotki</title>
+</head>
+<body style="background-color: #0fc4e7">
+<div align="center">
+  <h1>Edytuj maskotkę</h1>
+  <br/>
+  <form action="#" th:action="@{/saveMascot}" th:object="${mascot}" method="post">
+    <table border="0" cellpadding="5">
+      <tr>
+        <td>Id:</td>
+        <td><input type="number" th:field="*{id}" /></td>
+      </tr>
+      <tr>
+        <td>Nazwa:</td>
+        <td><input type="text" th:field="*{nazwa}"/></td>
+      </tr>
+      <tr>
+        <td>Cena podstawowa:</td>
+        <td><input type="number" th:field="*{cena_podstawowa}"/></td>
+      </tr>
+      <tr>
+        <td>Czas wykonania</td>
+        <td><input type="number" th:field="*{czas_wykonania}"/></td>
+      </tr>
+      <td colspan="2"><button type="submit">ZAPISZ</button></td>
+      </tr>
+
+    </table>
+
+  </form>
+</div>
+</body>
+</html>
